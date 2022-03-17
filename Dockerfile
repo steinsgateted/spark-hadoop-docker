@@ -11,6 +11,9 @@ ENV HADOOP_LOG_DIR="/var/log/hadoop"
 ENV PATH="$HADOOP_HOME/hadoop/sbin:$HADOOP_HOME/bin:$PATH"
 
 WORKDIR /opt
+# 安裝 pythin data mining 必要套件
+COPY requirements.txt /opt/requirements.txt
+RUN pip install -r requirements.txt
 
 RUN apt-get update && apt-get install -y openssh-server
 
